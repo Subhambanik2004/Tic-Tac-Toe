@@ -1,40 +1,44 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Itim', sans-serif;
+    box-sizing: border-box;
 }
 
 .background {
     background-color: #2c94c9;
     height: 100vh;
-    padding-top: 1px;
-    align-items: center;
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.backbox{
+.backbox {
     text-align: center;
     border-radius: 10px;
-    width: 400px;
-    margin: auto;
+    height: 650px;
+    width: 500px;
     background-color: rgba(111, 120, 128, 0.678);
-    margin-top: 75px;
-    box-shadow: 0px 10px 36px 16px rgba(0,0,0,0.1);
+    box-shadow: 0px 10px 36px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
+
 .title {
-    color: rgb(0, 0, 0);
-    text-align: center;
+    color: #061424;
     font-size: 40px;
-    margin-top: 10%;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+.mode-selection {
+    margin-bottom: 20px;
 }
 
 .display {
     color: white;
     font-size: 25px;
-    text-align: center;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin: 20px 0;
 }
 
 .hide {
@@ -42,23 +46,29 @@
 }
 
 .container {
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 33% 33% 33%;
-    max-width: 300px;
-
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .tile {
-    border: 1px solid rgb(0, 0, 0);
-    min-width: 100px;
-    min-height: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.tile:hover {
+    background-color: #cce7ff;
+    transform: scale(1.05);
 }
 
 .playerX {
@@ -71,26 +81,69 @@
 
 .controls {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    margin-top: 1cm;
 }
 
-.controls button {
-    color: white;
-    padding: 8px;
-    border-radius: 8px;
-    border: none;
-    font-size: 20px;
-    margin-left: 1em;
-    cursor: pointer;
-}
-
-.restart {
-    background-color: #415578;
-}
-
-#reset {
+.btn {
     background-color: #316728;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: #3a7f34;
+    transform: scale(1.05);
+}
+
+.tile.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 30px;
+    }
+
+    .display {
+        font-size: 20px;
+    }
+
+    .tile {
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 25px;
+    }
+
+    .display {
+        font-size: 18px;
+    }
+
+    .tile {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
 }
