@@ -124,7 +124,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     const minimax = (board, depth, isMaximizing) => {
-        let scores = { X: 1, O: -1, TIE: 0 };
+        let scores = { X: -1, O: 1, TIE: 0 };
         let result = checkWinner();
         if (result !== null) {
             return scores[result];
@@ -134,7 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
             let bestScore = -Infinity;
             for (let i = 0; i < board.length; i++) {
                 if (board[i] === '') {
-                    board[i] = 'X';
+                    board[i] = 'O';
                     let score = minimax(board, depth + 1, false);
                     board[i] = '';
                     bestScore = Math.max(score, bestScore);
@@ -145,7 +145,7 @@ window.addEventListener('DOMContentLoaded', () => {
             let bestScore = Infinity;
             for (let i = 0; i < board.length; i++) {
                 if (board[i] === '') {
-                    board[i] = 'O';
+                    board[i] = 'X';
                     let score = minimax(board, depth + 1, true);
                     board[i] = '';
                     bestScore = Math.min(score, bestScore);
